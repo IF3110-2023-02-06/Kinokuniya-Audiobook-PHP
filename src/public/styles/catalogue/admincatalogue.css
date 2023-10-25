@@ -1,0 +1,15 @@
+#add-books-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    background-color: #66acff;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.bx-plus {
+    font-size: 24px;
+    color: #fff;
+}

@@ -1,0 +1,53 @@
+#edituser {
+    background-color: #000;
+    color: #f2f3f5;
+    display: flex;
+    max-height: 1080px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: 'Karla', sans-serif; 
+}
+
+.input-group {
+    margin-top: 24;
+    height: 88px;
+    width: 40%;
+    font-weight: bold;
+    font-size: 23px;
+    margin-left: 28px;
+    margin-top: 24px;
+}
+
+.placeholder{
+    border: 1px solid gray;
+    height: 25%;
+    border-radius: 5px;
+    margin-top: 12px;
+}
+
+.input-container {
+    display: flex;           
+    flex-wrap: wrap;       
+}
+
+.input{
+    width: 50%;
+}
+
+.save{
+    background-color: #66acff;
+    width: 15%;
+    height: 55%;
+    margin-right: 3%;
+    border-radius: 4px;
+    color: white;
+    border-color: #66acff ;
+    border: none;
+    margin-right: 5px;
+    font-weight: bold;
+    font-family: 'karla';
+    font-size: 16px;
+}

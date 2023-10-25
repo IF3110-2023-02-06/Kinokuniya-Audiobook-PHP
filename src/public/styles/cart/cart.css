@@ -1,0 +1,183 @@
+.cart-section {
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    align-items: center;
+    margin: 32px;
+    margin-bottom: 8px;
+}
+
+.payment-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-items: start;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 20px;
+    margin-right: 20px;
+    gap: 24px;
+}
+
+.payment-checkout {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    width: 23.5rem;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+    gap: 16px;
+}
+
+.payment-checkout-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.payment-checkout-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.payment-checkout-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    gap: 4px;
+}
+
+.payment-checkout-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.payment-checkout-item-title {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.payment-checkout-item-price {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.payment-checkout-footer-line {
+    width: 100%;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.payment-checkout-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.payment-checkout-footer-total {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.payment-checkout-footer-btn {
+    width: 100%;
+    height: 32px;
+    background-color: #66acff;
+    color: #F2F3F5;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#remove-book {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 4px;
+    font-size: 20px;
+    color: transparent;
+    border-radius: 50%;
+}
+
+#remove-book:hover {
+    color: red;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    background-color: white;
+}
+
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.confirmationPopup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupContent {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    text-align: flex-start;
+    padding: 36px;
+    border-radius: 8px;
+    gap: 16px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.popupButtons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 20px;
+    gap: 16px;
+}
+
+#confirmButton {
+    font-size: 14px;
+    padding:12px;
+}
+
+#cancelButton {
+    font-size: 14px;
+    padding:12px;
+    background-color: transparent;
+    box-shadow: none;
+    color: #66acff;
+}
