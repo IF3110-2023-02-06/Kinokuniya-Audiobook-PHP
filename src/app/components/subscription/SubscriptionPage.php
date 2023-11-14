@@ -47,15 +47,33 @@
                     <section class="subs-section">
                         <h1 class="subs-header">Subscribed to</h1>
                         <div class="subs-card">
-                            <div hidden id="author-id">1</div>
-                            <p class="card-text">@blyaddddd</p>
+                            <div class="card-profile">
+                                <i class="bx bx-user" style="font-size: 28px;"></i>
+                                <div class="card-content">
+                                    <div hidden id="author-id">3</div>
+                                    <div class="username">
+                                        <h3 class="card-header">Cyka Blyad</h3>
+                                        <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
+                                    </div>
+                                    <p class="card-text">@alifioditya</p>
+                                </div>
+                            </div>
                             <button class='btn-standard unsub-button' id='unsub-button'>
                                 Unsubscribe
                             </button>
                         </div>
                         <div class="subs-card">
-                            <div hidden id="author-id">2</div>
-                            <p class="card-text">@cykaaaa</p>
+                            <div class="card-profile">
+                                <i class="bx bx-user" style="font-size: 28px;"></i>
+                                <div class="card-content">
+                                    <div hidden id="author-id">3</div>
+                                    <div class="username">
+                                        <h3 class="card-header">Cyka Blyad</h3>
+                                        <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
+                                    </div>
+                                    <p class="card-text">@alifioditya</p>
+                                </div>
+                            </div>
                             <button class='btn-standard unsub-button' id='unsub-button'>
                                 Unsubscribe
                             </button>
@@ -64,8 +82,17 @@
                     <section class="subs-section">
                         <h1 class="subs-header">Discover Authors</h1>
                         <div class="subs-card">
-                            <div hidden id="author-id">3</div>
-                            <p class="card-text">@alifioditya</p>
+                            <div class="card-profile">
+                                <i class="bx bx-user" style="font-size: 28px;"></i>
+                                <div class="card-content">
+                                    <div hidden id="author-id">3</div>
+                                    <div class="username">
+                                        <h3 class="card-header">Cyka Blyad</h3>
+                                        <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
+                                    </div>
+                                    <p class="card-text">@alifioditya</p>
+                                </div>
+                            </div>
                             <button class='btn-standard' id='sub-button'>
                                 Subscribe
                             </button>
