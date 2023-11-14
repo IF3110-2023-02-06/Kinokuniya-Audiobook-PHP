@@ -5,3 +5,5 @@ document.getElementById("topnav-page-text").innerHTML = "Subscription";
 let topnavPageIcon = document.getElementById("topnav-page-icon");
 topnavPageIcon.classList.remove("bx-grid-alt", "bx-book", "bx-cog", "bx-library", "bx-cart");
 topnavPageIcon.classList.add("bx-user-check");
+
+// Get all author data

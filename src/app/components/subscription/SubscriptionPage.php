@@ -55,7 +55,7 @@
                                         <h3 class="card-header">Cyka Blyad</h3>
                                         <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
                                     </div>
-                                    <p class="card-text">@alifioditya</p>
+                                    <p class="card-text">@idinakhuiblyad</p>
                                 </div>
                             </div>
                             <button class='btn-standard unsub-button' id='unsub-button'>
@@ -71,7 +71,7 @@
                                         <h3 class="card-header">Cyka Blyad</h3>
                                         <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
                                     </div>
-                                    <p class="card-text">@alifioditya</p>
+                                    <p class="card-text">@idinakhuiblyad</p>
                                 </div>
                             </div>
                             <button class='btn-standard unsub-button' id='unsub-button'>
@@ -81,22 +81,28 @@
                     </section>
                     <section class="subs-section">
                         <h1 class="subs-header">Discover Authors</h1>
-                        <div class="subs-card">
-                            <div class="card-profile">
-                                <i class="bx bx-user" style="font-size: 28px;"></i>
-                                <div class="card-content">
-                                    <div hidden id="author-id">3</div>
-                                    <div class="username">
-                                        <h3 class="card-header">Cyka Blyad</h3>
-                                        <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
+                        <?php if (!empty($this->data['authors'])) : ?>
+                            <?php foreach ($this->data['authors'] as $author) : ?>
+                                <div class="subs-card">
+                                    <div class="card-profile">
+                                        <i class="bx bx-user" style="font-size: 28px;"></i>
+                                        <div class="card-content">
+                                            <div hidden class="author-id"><?= $author['userID'] ?></div>
+                                            <div class="username">
+                                                <h3 class="card-header"><?= $author['name'] ?></h3>
+                                                <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
+                                            </div>
+                                            <p class="card-text">@<?= $author['username'] ?></p>
+                                        </div>
                                     </div>
-                                    <p class="card-text">@alifioditya</p>
+                                    <button class='btn-standard'>
+                                        Subscribe
+                                    </button>
                                 </div>
-                            </div>
-                            <button class='btn-standard' id='sub-button'>
-                                Subscribe
-                            </button>
-                        </div>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+                            <div></div>
+                        <?php endif; ?>
                     </section>
                 </div>
             </div>
