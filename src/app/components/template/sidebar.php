@@ -27,6 +27,13 @@
                 <span class="tooltip">My Books</span>
             </li>
             <li>
+                <a href="/public/subscription" >
+                    <i class='bx bx-user-check'></i>
+                    <span class="links_name">Subscription</span>
+                </a>
+                <span class="tooltip">Subscription</span>
+            </li>
+            <li>
                 <a id="log-out">
                     <i class='bx bx-log-out'></i>
                     <span class="links_name">Log Out</span>
