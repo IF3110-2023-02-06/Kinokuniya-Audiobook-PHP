@@ -12,6 +12,11 @@
     margin-left: 12px;
 }
 
+.sub-button-disabled {
+    opacity: 0.75;
+    transform: none;
+}
+
 .unsub-button{
     color: #929292;
     background: transparent;

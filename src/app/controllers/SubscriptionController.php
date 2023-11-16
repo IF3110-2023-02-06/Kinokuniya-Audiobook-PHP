@@ -69,13 +69,16 @@ class SubscriptionController extends Controller implements ControllerInterface
         // Set the SOAP action
         $client = new SoapClient($soapServerUrl, array('cache_wsdl' => WSDL_CACHE_NONE));
 
+        // Prepare the SOAP request parameters
+        $params = array(
+            'subscriber_id' => $subscriberId,
+            'api_key' => $apiKey,
+        );
+
         // Call the getAllAuthorBySubID method
         $subbedAuthors = array();
         try {
-            $subbedAuthors = $client->__soapCall('getAllAuthorBySubID', array(
-                'arg0' => $subscriberId,
-                'arg1' => $apiKey,
-            ));
+            $subbedAuthors = $client->__soapCall('getAllAuthorBySubID', array($params));
         } catch (SoapFault $e) {
             $subbedAuthors = array();
         }

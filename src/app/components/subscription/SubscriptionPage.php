@@ -39,6 +39,7 @@
 <body>
     <div id="root">
         <div id="user-id-hidden" hidden><?= $this->data['user_id'] ?></div>
+        <div id="username-hidden" hidden><?= $this->data['username'] ?></div>
         <?php include(dirname(__DIR__) . '/template/sidebar.php') ?>
         <main class="main-container">
             <?php include(dirname(__DIR__) . '/template/topnav.php') ?>
@@ -57,10 +58,10 @@
                                                 <h3 class="card-header"><?= $author['name'] ?></h3>
                                                 <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
                                             </div>
-                                            <p class="card-text">@<?= $author['username'] ?></p>
+                                            <p class="card-text"></p>@<?= $author['username'] ?></p>
                                         </div>
                                     </div>
-                                    <button class='btn-standard unsub-button' id='unsub-<?= $author['userID'] ?>'>
+                                    <button class='btn-standard unsub-button' id='unsub-<?= $author['userID'] +'-'+$author['username'] ?>'>
                                         Unsubscribe
                                     </button>
                                 </div>
