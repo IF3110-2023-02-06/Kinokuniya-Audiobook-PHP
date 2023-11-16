@@ -57,13 +57,47 @@ class SubscriptionController extends Controller implements ControllerInterface
         // Access the data array in the response
         $authors = $data['data'];
 
-        // TODO: Separate the subscribed authors from the rest of the authors
+        // Fetch subscribed authors from SOAP API
+        $soapServerUrl = 'http://kinokuniya-soap-service:8001/api/subscribe?wsdl';
+        
+        // Set the subscriber ID as the user ID
+        $subscriberId = $_SESSION['user_id'];
+
+        // Set the API key
+        $apiKey = "90d9b00a-5efc-4c4e-a53f-2be134a96df2";
+
+        // Set the SOAP action
+        $client = new SoapClient($soapServerUrl, array('cache_wsdl' => WSDL_CACHE_NONE));
+
+        // Call the getAllAuthorBySubID method
+        $subbedAuthors = array();
+        try {
+            $subbedAuthors = $client->__soapCall('getAllAuthorBySubID', array(
+                'arg0' => $subscriberId,
+                'arg1' => $apiKey,
+            ));
+        } catch (SoapFault $e) {
+            $subbedAuthors = array();
+        }
+    
+        // Filter authors to contain only authors that are not subscribed
+        if (!empty($subbedAuthors)) {
+            $authors = array_filter($authors, function ($author) use ($subbedAuthors) {
+                foreach ($subbedAuthors as $subbedAuthor) {
+                    if ($author['userID'] == $subbedAuthor['creatorID']) {
+                        return false;
+                    }
+                }
+                return true;
+            });
+        }
 
         $subsView = $this->view('subscription', 'SubscriptionView', [
             'isAdmin' => $isAdmin,
             'user_id' => $_SESSION['user_id'],
             'username' => $username,
-            'authors' => $authors
+            'authors' => $authors,
+            'subbedAuthors' => $subbedAuthors
         ]);
 
         $subsView->render();

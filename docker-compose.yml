@@ -1,13 +1,15 @@
 version: '3.3'
 services:
   web:
-    build: .
+    image: kino-app:latest
     ports:
       - 8080:80
     hostname: web-tubes-1
     env_file: .env
     volumes:
       - ./src:/var/www/html
+    networks:
+      - kinokuniya-network
   mysql:
     image: mysql:latest
     ports:
@@ -16,6 +18,5 @@ services:
     env_file: .env
     volumes:
       - ./mysql:/docker-entrypoint-initdb.d/:ro
-networks:
-  web-mysql:
-    driver: bridge
+    networks:
+      - kinokuniya-network

@@ -46,38 +46,28 @@
                 <div style="padding: 8px; display: flex; flex-direction: column">
                     <section class="subs-section">
                         <h1 class="subs-header">Subscribed to</h1>
-                        <div class="subs-card">
-                            <div class="card-profile">
-                                <i class="bx bx-user" style="font-size: 28px;"></i>
-                                <div class="card-content">
-                                    <div hidden id="author-id">3</div>
-                                    <div class="username">
-                                        <h3 class="card-header">Cyka Blyad</h3>
-                                        <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
+                        <?php if (!empty($this->data['subbedAuthors'])) : ?>
+                            <?php foreach ($this->data['subbedAuthors'] as $author) : ?>
+                                <div class="subs-card">
+                                    <div class="card-profile">
+                                        <i class="bx bx-user" style="font-size: 28px;"></i>
+                                        <div class="card-content">
+                                            <div hidden class="author-id"><?= $author['userID'] ?></div>
+                                            <div class="username">
+                                                <h3 class="card-header"><?= $author['name'] ?></h3>
+                                                <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
+                                            </div>
+                                            <p class="card-text">@<?= $author['username'] ?></p>
+                                        </div>
                                     </div>
-                                    <p class="card-text">@idinakhuiblyad</p>
+                                    <button class='btn-standard unsub-button' id='unsub-<?= $author['userID'] ?>'>
+                                        Unsubscribe
+                                    </button>
                                 </div>
-                            </div>
-                            <button class='btn-standard unsub-button' id='unsub-button'>
-                                Unsubscribe
-                            </button>
-                        </div>
-                        <div class="subs-card">
-                            <div class="card-profile">
-                                <i class="bx bx-user" style="font-size: 28px;"></i>
-                                <div class="card-content">
-                                    <div hidden id="author-id">3</div>
-                                    <div class="username">
-                                        <h3 class="card-header">Cyka Blyad</h3>
-                                        <i class="bx bxs-badge-check" style="color: #67A0EA;"></i>
-                                    </div>
-                                    <p class="card-text">@idinakhuiblyad</p>
-                                </div>
-                            </div>
-                            <button class='btn-standard unsub-button' id='unsub-button'>
-                                Unsubscribe
-                            </button>
-                        </div>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+                            <p style="margin-left: 12px;">No subscribed authors yet...</p>
+                        <?php endif; ?>
                     </section>
                     <section class="subs-section">
                         <h1 class="subs-header">Discover Authors</h1>
@@ -95,13 +85,13 @@
                                             <p class="card-text">@<?= $author['username'] ?></p>
                                         </div>
                                     </div>
-                                    <button class='btn-standard'>
+                                    <button class='btn-standard sub-button' id='sub-<?= $author['userID'] ?>'>
                                         Subscribe
                                     </button>
                                 </div>
                             <?php endforeach; ?>
                         <?php else : ?>
-                            <div></div>
+                            <No style="margin-left: 12px;">No premium authors yet...</p>
                         <?php endif; ?>
                     </section>
                 </div>
