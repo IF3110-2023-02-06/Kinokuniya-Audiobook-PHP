@@ -97,18 +97,6 @@
                     </section>
                 </div>
             </div>
-            <div class="overlay" id="overlay">
-                <div class="confirmationPopup" id="confirmationPopup">
-                    <div class="popupContent">
-                        <h2 class="popupTitle">Confirm Changes</h2>
-                        <p class="popupConfirmText">Are you sure you want to unsubscribe?</p>
-                        <div class="popupButtons">
-                            <button class="btn-standard" id="cancelButton">Cancel</button>
-                            <button class="btn-standard" id="confirmButton">Confirm</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
     </div>
 </body>

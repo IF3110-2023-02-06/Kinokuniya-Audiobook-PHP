@@ -15,8 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Get all elements with the class 'sub-button'
     var subscribeButtons = document.querySelectorAll('.sub-button');
+    var unsubscribeButtons = document.querySelectorAll('.unsub-button');
 
     // Add a click event listener to each button
+    subscribeButtons &&
     subscribeButtons.forEach(function (button) {
         // Extract the author ID from the button's ID attribute
         // ID format: unsub-{authorId}-{creatorName}
@@ -63,6 +65,59 @@ document.addEventListener("DOMContentLoaded", function () {
                         button.classList.add('sub-button-disabled');
                     } else {
                         console.log('Subscription failed!');
+                    }
+                }
+            }
+
+        });
+    });
+
+    // Add a click event listener to each button
+    unsubscribeButtons &&
+    unsubscribeButtons.forEach(function (button) {
+        // Extract the author ID from the button's ID attribute
+        // ID format: unsub-{authorId}-{creatorName}
+        var authorId = button.id.split('-')[1];
+        var creatorName = button.id.split('-')[2];
+
+        // Add a click event listener
+        button.addEventListener('click', function () {
+            console.log('Unsubscribe button clicked for author ID:', authorId);
+            console.log('User ID:', userID);
+            
+            // Create XHR
+            const xhr = new XMLHttpRequest();
+            const url = 'http://localhost:8001/api/unsubscribe'
+
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'text/xml; charset=utf-8');
+
+            let body = `<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+                            <Body>
+                            <rejectSubscribe xmlns="http://service.kinokuniya/">
+                                <arg0 xmlns="">${authorId}</arg0>
+                                <arg1 xmlns="">${userID}</arg1>
+                                <arg3 xmlns="">${SOAP_KEY}</arg3>
+                            </rejectSubscribe>
+                            </Body>
+                        </Envelope>`;
+
+            xhr.send(body);
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState === XMLHttpRequest.DONE) {
+                    if (this.status === 200) {
+                        console.log(this.responseText);
+                        // Change the button's text to 'Unsubscribed'
+                        button.innerText = 'Unsubscribed';
+            
+                        // Disable the button
+                        button.disabled = true;
+            
+                        // Change the button's class to 'sub-button-disabled'
+                        button.classList.add('unsub-button-disabled');
+                    } else {
+                        console.log('Unsubscription failed!');
                     }
                 }
             }
